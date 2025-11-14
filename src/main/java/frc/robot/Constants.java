@@ -6,20 +6,20 @@ import edu.wpi.first.math.util.Units;
 public class Constants {
     
     public static final class ModuleConstants {
-        public static final double kWheelDiameterMeters = Units.inchesToMeters(0);
-        public static final double kDriveMotorGearRatio = 1.0 / 1.0; // Drive ratio of ? : 1
-        public static final double kTurningMotorGearRatio = 1.0 / (1.0 / 1.0); // Turning ratio of (? / ?) : 1
+        public static final double kWheelDiameterMeters = Units.inchesToMeters(4);
+        public static final double kDriveMotorGearRatio = 5.9 / 1.0; // Drive ratio of ? : 1
+        public static final double kTurningMotorGearRatio = 1.0 / 18.75; // Turning ratio of (? / ?) : 1
         public static final double kDriveEncoderRot2Meter = Math.PI * kWheelDiameterMeters / kDriveMotorGearRatio;
         public static final double kTurningEncoderRot2Rad = kTurningMotorGearRatio * 2 * Math.PI;
         public static final double kDriveEncoderRPM2MeterPerSec = kDriveEncoderRot2Meter / 60.0;
         public static final double kTurningEncoderRPM2RadPerSec = kTurningEncoderRot2Rad / 60.0;
-        public static final double kPTurning = 0.5; // For PID
+        public static final double kPTurning = 0.2; // For PID
     }
 
     public static final class DriveConstants {
 
-        public static final double kTrackWidth = Units.inchesToMeters(0); // Distance between right and left wheels
-        public static final double kWheelBase = Units.inchesToMeters(0); // Distance between front and back wheels
+        public static final double kTrackWidth = Units.inchesToMeters(21.75); // Distance between right and left wheels
+        public static final double kWheelBase = Units.inchesToMeters(21.75); // Distance between front and back wheels
 
         public static final SwerveDriveKinematics kDriveKinematics = new SwerveDriveKinematics(
                 new Translation2d(kWheelBase / 2, kTrackWidth / 2), // back left
@@ -28,34 +28,39 @@ public class Constants {
                 new Translation2d(-kWheelBase / 2, -kTrackWidth / 2)); // front right
 
         // DRIVE Motor Ports
-        public static final int kFrontLeftDriveMotorPort = 0;
-        public static final int kBackLeftDriveMotorPort = 0;
-        public static final int kFrontRightDriveMotorPort = 0;
-        public static final int kBackRightDriveMotorPort = 0;
+        public static final int kFrontLeftDriveMotorPort = 1;
+        public static final int kBackLeftDriveMotorPort = 7;
+        public static final int kFrontRightDriveMotorPort = 3;
+        public static final int kBackRightDriveMotorPort = 5;
 
         // TURNING Motor Ports
-        public static final int kFrontLeftTurningMotorPort = 0;
-        public static final int kBackLeftTurningMotorPort = 0;
-        public static final int kFrontRightTurningMotorPort = 0;
-        public static final int kBackRightTurningMotorPort = 0;
+        public static final int kFrontLeftTurningMotorPort = 2;
+        public static final int kBackLeftTurningMotorPort = 8;
+        public static final int kFrontRightTurningMotorPort = 4;
+        public static final int kBackRightTurningMotorPort = 6;
 
         // CANCoder Ids
-        public static final int kFrontLeftCANCoderId = 0;
-        public static final int kBackLeftCANCoderId = 0;
-        public static final int kFrontRightCANCoderId = 0;
-        public static final int kBackRightCANCoderId = 0;
+        public static final int kFrontLeftCANCoderId = 21;
+        public static final int kBackLeftCANCoderId = 24;
+        public static final int kFrontRightCANCoderId = 22;
+        public static final int kBackRightCANCoderId = 23;
 
         // Invert booleans | We use MK4i modules so the turning motors are inverted
-        public static final boolean kModuleTurningEncoderReversed = true;
+        public static final boolean kModuleTurningEncoderReversed = false;
         public static final boolean kModuleDriveEncoderReversed = false;
         public static final boolean kModuleCANCoderReversed = false;
-        public static final boolean kGyroReversed = true;
+        public static final boolean kGyroReversed = false;
 
         // Turning encoder offsets
-        public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = 0 * Math.PI / 180;
-        public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = 0 * Math.PI / 180;
-        public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = 0 * Math.PI / 180;
-        public static final double kBackRightDriveAbsoluteEncoderOffsetRad = 0 * Math.PI / 180;
+        public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = 0.140625 * Math.PI/180;
+        public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = -0.351806640625 * Math.PI/180;
+        public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = 0.104248046875 * Math.PI/180;
+        public static final double kBackRightDriveAbsoluteEncoderOffsetRad = -0.192626953125 * Math.PI/180;
+
+        // public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = 0.140625 * 2 * Math.PI;
+        // public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = -0.351806640625 * 2 * Math.PI;
+        // public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = 0.104248046875 * 2 * Math.PI;
+        // public static final double kBackRightDriveAbsoluteEncoderOffsetRad = -0.192626953125 * 2 * Math.PI;
 
         // Robot speeds
         public static final double kPhysicalMaxSpeedMetersPerSecond = 1; // PHYSICAL max speed of the modules (safety cap)
@@ -66,8 +71,8 @@ public class Constants {
         public static final double kTeleDriveMaxAngularSpeedRadiansPerSecond = kPhysicalMaxAngularSpeedRadiansPerSecond / 2;
 
         // Robot acceleration
-        public static final double kTeleDriveMaxAccelerationUnitsPerSecond = 3;
-        public static final double kTeleDriveMaxAngularAccelerationUnitsPerSecond = 3;
+        public static final double kTeleDriveMaxAccelerationUnitsPerSecond = 2;
+        public static final double kTeleDriveMaxAngularAccelerationUnitsPerSecond = 2;
 
         // Robot speed modifiers
         public static final double kTeleopBoostModifier = 1.5;
