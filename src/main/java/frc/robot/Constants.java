@@ -45,6 +45,9 @@ public class Constants {
         public static final int kFrontRightCANCoderId = 22;
         public static final int kBackRightCANCoderId = 23;
 
+        // Gyro
+        public static final int kPigeonId = 17;
+
         // Invert booleans | We use MK4i modules so the turning motors are inverted
         public static final boolean kModuleTurningEncoderReversed = false;
         public static final boolean kModuleDriveEncoderReversed = false;
@@ -56,11 +59,6 @@ public class Constants {
         public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = -0.351806640625 * Math.PI/180;
         public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = 0.104248046875 * Math.PI/180;
         public static final double kBackRightDriveAbsoluteEncoderOffsetRad = -0.192626953125 * Math.PI/180;
-
-        // public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = 0.140625 * 2 * Math.PI;
-        // public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = -0.351806640625 * 2 * Math.PI;
-        // public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = 0.104248046875 * 2 * Math.PI;
-        // public static final double kBackRightDriveAbsoluteEncoderOffsetRad = -0.192626953125 * 2 * Math.PI;
 
         // Robot speeds
         public static final double kPhysicalMaxSpeedMetersPerSecond = 1; // PHYSICAL max speed of the modules (safety cap)
