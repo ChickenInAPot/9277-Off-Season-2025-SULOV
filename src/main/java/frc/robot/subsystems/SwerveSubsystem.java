@@ -54,7 +54,7 @@ public class SwerveSubsystem extends SubsystemBase {
 
 
     public final GenericEntry sb_gyro;
-    public final Pigeon2 pidgey = new Pigeon2(12,"*");
+    public final Pigeon2 pidgey = new Pigeon2(DriveConstants.kPigeonId,"*");
 
 
 
