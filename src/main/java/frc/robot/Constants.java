@@ -2,6 +2,7 @@ package frc.robot;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.util.Units;
+import com.ctre.phoenix6.signals.InvertedValue;
 
 public class Constants {
     
@@ -88,6 +89,7 @@ public class Constants {
         public static final int kDriverYAxis = 1;
         public static final int kDriverXAxis = 0;
         public static final int kDriverRotAxis = 2;
+        public static final int kAuxiliaryMotorAxis = 3; // Right joystick Y-axis for auxiliary motor
 
         // Joystick Triggers
         public static final int kDriverBoostButtonId = 1;
@@ -112,5 +114,12 @@ public class Constants {
         public static final int kController_rightBumper = 6;
         public static final int kController_leftTrigger = 7;
         public static final int kController_rightTrigger = 8;
-    } 
+    }
+    
+    // ===== NEW: Auxiliary Motor Constants ===== //
+    public static final class AuxiliaryMotorConstants {
+        public static final int kAuxiliaryMotorPort = 10; // Change this to your actual CAN ID
+        public static final InvertedValue kMotorInverted = InvertedValue.Clockwise_Positive; // Change if needed
+        public static final double kMaxSpeed = 1.0; // Maximum speed multiplier
+    }
 }
